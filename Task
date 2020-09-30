@@ -1,0 +1,20 @@
+static void printBonusDatesBetween(int fromYear, int toYear)
+	{
+		LocalDate endDate = LocalDate.of(toYear, 1, 1);
+		for(LocalDate date = LocalDate.of(fromYear, 1, 1); date.isBefore(endDate); date = date.plusDays(1))
+		{
+			StringBuilder changeString = new StringBuilder();
+			changeString.append(date);
+			changeString = changeString.deleteCharAt(4);
+			changeString = changeString.deleteCharAt(6);
+			StringBuilder reverseString = new StringBuilder();
+			reverseString.append(changeString.toString());
+			reverseString.reverse();
+			String changedString = changeString.toString();
+			String reversedString = reverseString.toString();
+			if(changedString.equals(reversedString))
+			{
+				System.out.println(date);
+			}
+		}
+	}
